@@ -1,0 +1,12 @@
+<h1>primitiveValue : {{primitiveValue}}</h1>
+<h1>objectValue : {{objectValue.value}}</h1>
+<app-child-one
+  [primitiveValue]="primitiveValue"
+  [objectValue]="objectValue"
+></app-child-one>
+<button class="bg-red-100 mx-10" (click)="changePrimitiveValue()">
+  changePrimitiveValue
+</button>
+<button class="bg-red-100 mx-10" (click)="changeObjectValue()">
+  changeObjectValue
+</button>
