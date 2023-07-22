@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   Input,
+  SimpleChange,
 } from '@angular/core';
 
 @Component({
@@ -12,16 +12,17 @@ import {
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.scss'],
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildOneComponent {
   @Input() primitiveValue?: number;
   @Input() objectValue?: { value: number };
   constructor(private readonly cdr: ChangeDetectorRef) {}
   changePrimitiveValue() {
-    if (this.primitiveValue) {
+    console.log(this.primitiveValue);
+    if (this.primitiveValue !== undefined) {
       this.primitiveValue++;
     }
+    this.cdr.detectChanges();
   }
   changeObjectValue() {
     if (this.objectValue) {
@@ -30,10 +31,11 @@ export class ChildOneComponent {
         value: this.objectValue.value + 1,
       };
     }
+    this.cdr.detectChanges();
   }
   ////////////////////////////////
-  ngOnChanges() {
-    console.log('CHANGE IN CHILD!!!!!!!!!!!!!');
+  ngOnChanges(simpleChange: SimpleChange) {
+    console.log('ngOnChanges', simpleChange);
   }
   ngOnInit(): void {
     console.log('ngOnInit');
@@ -49,6 +51,7 @@ export class ChildOneComponent {
   }
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit');
+    this.cdr.detach();
   }
   ngAfterViewChecked(): void {
     console.log('ngAfterViewChecked');
