@@ -1,12 +1,13 @@
 <h1>primitiveValue : {{primitiveValue}}</h1>
 <h1>objectValue : {{objectValue.value}}</h1>
+<button mat-stroked-button class="bg-red-100" (click)="changePrimitiveValue()">
+  changePrimitiveValue
+</button>
+<button mat-stroked-button class="bg-red-100" (click)="changeObjectValue()">
+  changeObjectValue
+</button>
 <app-child-one
   [primitiveValue]="primitiveValue"
   [objectValue]="objectValue"
 ></app-child-one>
-<button class="bg-red-100 mx-1" (click)="changePrimitiveValue()">
-  changePrimitiveValue
-</button>
-<button class="bg-red-100 mx-1" (click)="changeObjectValue()">
-  changeObjectValue
-</button>
+<button (click)="onClick()">click!</button>

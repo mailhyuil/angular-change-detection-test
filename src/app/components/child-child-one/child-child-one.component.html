@@ -1,0 +1,10 @@
+<h1>child's child primitiveValue : {{ primitiveValue }}</h1>
+<div *ngIf="objectValue">
+  <h1>child's child objectValue : {{ objectValue.value }}</h1>
+</div>
+<button mat-stroked-button class="bg-blue-100" (click)="changePrimitiveValue()">
+  child's child changePrimitiveValue
+</button>
+<button mat-stroked-button class="bg-blue-100" (click)="changeObjectValue()">
+  child's child changeObjectValue
+</button>

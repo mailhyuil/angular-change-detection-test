@@ -7,16 +7,16 @@ import {
   SimpleChange,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { ChildChildOneComponent } from '../child-child-one/child-child-one.component';
+
 @Component({
-  selector: 'app-child-one',
-  imports: [CommonModule, MatButtonModule, ChildChildOneComponent],
+  selector: 'app-child-child-one',
   standalone: true,
-  templateUrl: './child-one.component.html',
-  styleUrls: ['./child-one.component.scss'],
+  imports: [CommonModule, MatButtonModule],
+  templateUrl: './child-child-one.component.html',
+  styleUrls: ['./child-child-one.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChildOneComponent {
+export class ChildChildOneComponent {
   @Input() primitiveValue?: number;
   @Input() objectValue?: { value: number };
   constructor(private readonly cdr: ChangeDetectorRef) {}
@@ -35,27 +35,27 @@ export class ChildOneComponent {
   }
   ////////////////////////////////
   ngOnChanges(simpleChange: SimpleChange) {
-    console.log('ngOnChanges in child', simpleChange);
+    console.log('ngOnChanges in child"s child', simpleChange);
   }
   ngOnInit(): void {
-    console.log('ngOnInit in child');
+    console.log('ngOnInit in child"s child');
   }
   ngDoCheck(): void {
-    console.log('ngDoCheck in child');
+    console.log('ngDoCheck in child"s child');
   }
   ngAfterContentInit(): void {
-    console.log('ngAfterContentInit in child');
+    console.log('ngAfterContentInit in child"s child');
   }
   ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked in child');
+    console.log('ngAfterContentChecked in child"s child');
   }
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit in child');
+    console.log('ngAfterViewInit in child"s child');
   }
   ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked in child');
+    console.log('ngAfterViewChecked in child"s child');
   }
   ngOnDestroy(): void {
-    console.log('ngOnDestroy in child');
+    console.log('ngOnDestroy in child"s child');
   }
 }
