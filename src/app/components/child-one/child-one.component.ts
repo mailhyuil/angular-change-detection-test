@@ -18,7 +18,23 @@ export class ChildOneComponent {
   @Input() primitiveValue?: number;
   @Input() objectValue?: { value: number };
   constructor(private readonly cdr: ChangeDetectorRef) {}
+  changePrimitiveValue() {
+    if (this.primitiveValue) {
+      this.primitiveValue++;
+    }
+  }
+  changeObjectValue() {
+    if (this.objectValue) {
+      this.objectValue = {
+        ...this.objectValue,
+        value: this.objectValue.value + 1,
+      };
+    }
+  }
   ////////////////////////////////
+  ngOnChanges() {
+    console.log('CHANGE IN CHILD!!!!!!!!!!!!!');
+  }
   ngOnInit(): void {
     console.log('ngOnInit');
   }

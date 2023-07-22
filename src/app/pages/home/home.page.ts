@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChildOneComponent } from 'src/app/components/child-one/child-one.component';
 
@@ -10,13 +10,20 @@ import { ChildOneComponent } from 'src/app/components/child-one/child-one.compon
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnChanges {
   primitiveValue = 0;
   objectValue = { value: 0 };
+
   changePrimitiveValue() {
     this.primitiveValue++;
   }
   changeObjectValue() {
-    this.objectValue.value++;
+    this.objectValue = {
+      ...this.objectValue,
+      value: this.objectValue.value + 1,
+    };
+  }
+  ngOnChanges() {
+    console.log('CHANGE IN PARENT!!!!!!!!!!!!!');
   }
 }
