@@ -5,10 +5,10 @@ import {
   Input,
   SimpleChange,
 } from '@angular/core';
-
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-child-one',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.scss'],
   standalone: true,
