@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "my-angular-889f0"
+  },
+  "targets": {
+    "my-angular-889f0": {
+      "hosting": {
+        "angular": [
+          "my-angular-889f0"
+        ]
+      }
+    }
+  }
+}

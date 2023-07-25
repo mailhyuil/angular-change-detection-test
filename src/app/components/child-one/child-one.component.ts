@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { SomeService } from 'src/app/services/some.service';
 
 @Component({
   selector: 'app-child-one',
@@ -12,13 +8,15 @@ import {
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.scss'],
   standalone: true,
+  providers: [SomeService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildOneComponent {
   @Input() primitiveValue?: number;
   @Input() objectValue?: { value: number };
-  constructor(private readonly cdr: ChangeDetectorRef) {}
+  constructor(private readonly someService: SomeService) {}
   changePrimitiveValue() {
+    this.someService.hi();
     if (this.primitiveValue) {
       this.primitiveValue++;
     }
